@@ -6,11 +6,27 @@
 	<array>
 		<dict>
 			<key>UIApplicationShortcutItemType</key>
-			<string>milton-mobile.open_menu</string>
+			<string>milton-mobile.check_activities</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Check Menu</string>
+			<string>Check Today&apos;s Activities</string>
 			<key>UIApplicationShortcutIconType</key>
-			<string>Love</string>
+			<string>UIApplicationShortcutIconTypeFavorite</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>milton-mobile.check_today_lunch</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Check Today&apos;s Lunch</string>
+			<key>UIApplicationShortcutIconType</key>
+			<string>UIApplicationShortcutIconTypeFavorite</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>milton-mobile.check_today_dinner</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Check Today&apos;s Dinner</string>
+			<key>UIApplicationShortcutIconType</key>
+			<string>UIApplicationShortcutIconTypeLove</string>
 		</dict>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>

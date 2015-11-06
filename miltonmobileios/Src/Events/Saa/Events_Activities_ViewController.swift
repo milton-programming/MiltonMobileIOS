@@ -7,59 +7,15 @@ class Events_Activities_ViewController: UIViewController, UITableViewDataSource,
     var date = ""
     var today = "";
     
-    @IBOutlet var dayController: UISegmentedControl!
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
-    }
-    @IBAction func dateChanged(sender: UISegmentedControl) {
-        var date = NSDate() //get the time, in this case the time an object was created.
-        //format date
-        //let dateFormatter = NSDateFormatter()
-        //dateFormatter.dateFormat = "yyyy-MM-dd" //format style. Browse online to get a format that fits your needs.
-        //let dateString = dateFormatter.stringFromDate(date)
-        //self.date = dateString
-        switch sender.titleForSegmentAtIndex(sender.selectedSegmentIndex)!{
-        case "Monday":
-            date = date.following(weekday: .Monday)
-            
-        case "Tuesday":
-            date = date.following(weekday: .Tuesday)
-            
-        case "Wednesday":
-            date = date.following(weekday: .Wednesday)
-            
-        case "Thursday":
-            date = date.following(weekday: .Thursday)
-            
-        case "Friday":
-            date = date.following(weekday: .Friday)
-            
-        default:
-            break
-        }
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd" //format style. Browse online to get a format that fits your needs.
-        let dateString = dateFormatter.stringFromDate(date)
-        //print(dateString)
-        self.date = dateString
-        loadActivities()
-        
-
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let tableAsArray = TableData["Activities"].arrayValue
         return tableAsArray.count
- /*
-        var tableAsDictionary = TableData["Activities"].arrayValue
-        var key : String = Array(tableAsDictionary.keys)[section]
-        var testc = tableAsDictionary[key]!.count
-        return testc*/
+
     }
-    /*@IBAction func mealTimeChanged(sender: UISegmentedControl) {
-        self.selectedTime = sender.titleForSegmentAtIndex(sender.selectedSegmentIndex)!
-        self.tableView.reloadData()
-    }*/
-    
+     
     //@IBOutlet weak var MealTimeSegmentedControl: UISegmentedControl!
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
@@ -98,6 +54,19 @@ class Events_Activities_ViewController: UIViewController, UITableViewDataSource,
         
     }
     
+    @IBAction func changeDate(sender: AnyObject) {
+        DatePickerDialog().show("DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel") {
+            (date) -> Void in
+            //self.textField.text = "\(date)"
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd" //format style. Browse online to get a format that fits your needs.
+            let dateString = dateFormatter.stringFromDate(date)
+            self.date = dateString
+            self.loadActivities()
+            
+        }
+
+    }
     @IBOutlet weak var tableView: UITableView!
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -110,40 +79,9 @@ class Events_Activities_ViewController: UIViewController, UITableViewDataSource,
         self.date = dateString
         loadActivities()
     }
-    override func viewDidLoad() {
-        let date=NSDate()
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "EEEE"
-        let currentDay = dateFormatter.stringFromDate(date)
-        print(currentDay)
-        dayController.selectedSegmentIndex = getIntValueFromDay(currentDay)
-    }
     @IBAction func navbarclicked(sender: AnyObject) {
         AboutScreen.showAboutScreen(self)
     }
-    func getIntValueFromDay(weekday:String) -> Int{
-        switch weekday{
-        case "Monday":
-            return 0
-            
-        case "Tuesday":
-            return 1
-            
-        case "Wednesday":
-            return 2
-            
-        case "Thursday":
-            return 3
-            
-        case "Friday":
-            return 4
-            
-        default:
-            return 0
-        }
-        
-    }
-    
     func loadActivities() {
         if (today != self.date) {
             today = self.date;

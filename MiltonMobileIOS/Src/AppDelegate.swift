@@ -53,18 +53,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var succeeded = false
         
-        if( shortcutItem.type == "milton-mobile.open_menu" ) {
-            
+        if( shortcutItem.type == "milton-mobile.check_today_lunch" ) {
             // Add your code here
             print("- Handling \(shortcutItem.type)")
-            
             // Get the view controller you want to load
-            let mainSB = UIStoryboard(name: "Main", bundle: nil)
-            let menuVC = mainSB.instantiateViewControllerWithIdentifier("Food_Meals_ViewController") as! Food_Meals_ViewController
+            let tabVC = self.window?.rootViewController as! TabBarController
+            tabVC.selectedIndex = 0
+            let navVC = tabVC.viewControllers![tabVC.selectedIndex] as! Navigation_Controller
+            let menuVC = navVC.viewControllers[0] as! Food_Meals_ViewController
+            menuVC.selectedTime="Lunch"
+            menuVC.tableView.reloadData()
+            print(menuVC.selectedTime)
+            succeeded = true
             
-            let navVC = self.window?.rootViewController as! UINavigationController
-            navVC.pushViewController(menuVC, animated: true)
+        }
+        if( shortcutItem.type == "milton-mobile.check_today_dinner" ) {
+            // Add your code here
+            print("- Handling \(shortcutItem.type)")
+            // Get the view controller you want to load
+            let tabVC = self.window?.rootViewController as! TabBarController
+            tabVC.selectedIndex = 0
+            let navVC = tabVC.viewControllers![tabVC.selectedIndex] as! Navigation_Controller
+            let menuVC = navVC.viewControllers[0] as! Food_Meals_ViewController
+            menuVC.selectedTime="Dinner"
+            menuVC.tableView.reloadData()
+            print(menuVC.selectedTime)
+            succeeded = true
             
+        }
+        if( shortcutItem.type == "milton-mobile.check_activities" ) {
+            // Add your code here
+            print("- Handling \(shortcutItem.type)")
+            // Get the view controller you want to load
+            let tabVC = self.window?.rootViewController as! TabBarController
+            tabVC.selectedIndex = 1
             succeeded = true
             
         }

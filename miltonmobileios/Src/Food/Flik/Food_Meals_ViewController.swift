@@ -4,10 +4,9 @@ import Alamofire
 class Food_Meals_ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate {
 
     var TableData : JSON = []
-    var selectedTime = "Lunch"
+    var selectedTime = ""
     var date = ""
     var today = ""
-    @IBOutlet var dayController: UISegmentedControl!
     
         func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         let tableAsDictionary = TableData[selectedTime].dictionaryValue
@@ -23,44 +22,12 @@ class Food_Meals_ViewController: UIViewController, UITableViewDataSource, UITabl
         self.selectedTime = sender.titleForSegmentAtIndex(sender.selectedSegmentIndex)!
         self.tableView.reloadData()
     }
-    @IBAction func dateChanged(sender: UISegmentedControl) {
-        var date = NSDate() //get the time, in this case the time an object was created.
-        //format date
-        //let dateFormatter = NSDateFormatter()
-        //dateFormatter.dateFormat = "yyyy-MM-dd" //format style. Browse online to get a format that fits your needs.
-        //let dateString = dateFormatter.stringFromDate(date)
-        //self.date = dateString
-        switch sender.titleForSegmentAtIndex(sender.selectedSegmentIndex)!{
-        case "Monday":
-            date = date.following(weekday: .Monday)
-            
-        case "Tuesday":
-            date = date.following(weekday: .Tuesday)
-            
-        case "Wednesday":
-            date = date.following(weekday: .Wednesday)
-            
-        case "Thursday":
-            date = date.following(weekday: .Thursday)
-            
-        case "Friday":
-            date = date.following(weekday: .Friday)
-            
-        default:
-            break
-        }
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd" //format style. Browse online to get a format that fits your needs.
-        let dateString = dateFormatter.stringFromDate(date)
-        //print(dateString)
-        self.date = dateString
-        loadMeals()
-        
-        
-    }
 
     @IBOutlet weak var MealTimeSegmentedControl: UISegmentedControl!
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if(selectedTime==""){
+            selectedTime="Lunch"
+        }
         let cell = UITableViewCell()
         let tableAsDictionary = TableData[selectedTime].dictionaryValue
         let key : String = Array(tableAsDictionary.keys)[indexPath.section]
@@ -74,6 +41,9 @@ class Food_Meals_ViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if(selectedTime==""){
+            selectedTime="Lunch"
+        }
         let tableAsDictionary = TableData[selectedTime].dictionaryValue
         let key : String = Array(tableAsDictionary.keys)[section]
         return key
@@ -83,7 +53,9 @@ class Food_Meals_ViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let alert = UIAlertView();
         alert.title = "Meal Name"
-        
+        if(selectedTime==""){
+            selectedTime="Lunch"
+        }
         let tableAsDictionary = TableData[selectedTime].dictionaryValue
         let key : String = Array(tableAsDictionary.keys)[indexPath.section]
         
@@ -154,8 +126,20 @@ class Food_Meals_ViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func navbarclicked(sender: AnyObject) {
         AboutScreen.showAboutScreen(self)
     }
-    
+    @IBAction func openDatePicker(sender: AnyObject) {
+        DatePickerDialog().show("DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel") {
+            (date) -> Void in
+            //self.textField.text = "\(date)"
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd" //format style. Browse online to get a format that fits your needs.
+            let dateString = dateFormatter.stringFromDate(date)
+            self.date = dateString
+            self.loadMeals()
+
+        }
+    }
     override func viewDidAppear(animated: Bool) {
+        print("Started Here")
         super.viewDidAppear(animated)
         let date = NSDate() //get the time, in this case the time an object was created.
         //format date
@@ -163,43 +147,19 @@ class Food_Meals_ViewController: UIViewController, UITableViewDataSource, UITabl
         dateFormatter.dateFormat = "yyyy-MM-dd" //format style. Browse online to get a format that fits your needs.
         let dateString = dateFormatter.stringFromDate(date)
         self.date = dateString
-        loadMeals()
-    }
-    func getIntValueFromDay(weekday:String) -> Int{
-        switch weekday{
-        case "Monday":
-            return 0
-            
-        case "Tuesday":
-            return 1
-            
-        case "Wednesday":
-            return 2
-            
-        case "Thursday":
-            return 3
-            
-        case "Friday":
-            return 4
-            
-        default:
-            return 0
+        if(selectedTime==""){
+            selectedTime="Lunch"
         }
-        
+        loadMeals()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Started HEREEEEEE")
         let alert = UIAlertView();
         alert.title = "Allergy Warning"
         alert.message = "Before placing your order, please inform your server if a person in your party has a food allergy."
         alert.addButtonWithTitle("OK")
         alert.show()
-        let date=NSDate()
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "EEEE"
-        let currentDay = dateFormatter.stringFromDate(date)
-        print(currentDay)
-        dayController.selectedSegmentIndex = getIntValueFromDay(currentDay)
     }
 }
 

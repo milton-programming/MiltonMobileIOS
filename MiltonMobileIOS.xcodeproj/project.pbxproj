@@ -27,6 +27,9 @@
 		41E33E871AF99A3000FF50BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E33E861AF99A3000FF50BE /* AppDelegate.swift */; };
 		41FB946E1AF7DB5600D2C1B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41FB946C1AF7DB5600D2C1B5 /* Main.storyboard */; };
 		41FB94701AF7DB5600D2C1B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41FB946F1AF7DB5600D2C1B5 /* Images.xcassets */; };
+		89CC55521BEB865300B08742 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC55511BEB865300B08742 /* DatePicker.swift */; };
+		89CC55711BED0DA300B08742 /* MiltonMobileStudent Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 89CC55701BED0DA300B08742 /* MiltonMobileStudent Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		89CC55801BED0DA300B08742 /* MiltonMobileStudent.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 89CC55641BED0DA300B08742 /* MiltonMobileStudent.app */; };
 		89D60CAA1BEA619A00585230 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D60CA91BEA619A00585230 /* NSDateExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -178,6 +181,13 @@
 			remoteGlobalIDString = E4202FE01B667AA100C997FB;
 			remoteInfo = "Alamofire watchOS";
 		};
+		89CC55721BED0DA300B08742 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41FB945B1AF7DB5600D2C1B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89CC556F1BED0DA300B08742;
+			remoteInfo = "MiltonMobileStudent Extension";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -192,6 +202,28 @@
 				4107B4781B121867005B0176 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89CC55841BED0DA300B08742 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				89CC55711BED0DA300B08742 /* MiltonMobileStudent Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89CC55881BED0DA300B08742 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				89CC55801BED0DA300B08742 /* MiltonMobileStudent.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -219,6 +251,9 @@
 		41FB94671AF7DB5600D2C1B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41FB946D1AF7DB5600D2C1B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		41FB946F1AF7DB5600D2C1B5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		89CC55511BEB865300B08742 /* DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatePicker.swift; path = MiltonMobileIOS/Src/Util/DatePicker.swift; sourceTree = SOURCE_ROOT; };
+		89CC55641BED0DA300B08742 /* MiltonMobileStudent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiltonMobileStudent.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89CC55701BED0DA300B08742 /* MiltonMobileStudent Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MiltonMobileStudent Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89D60CA91BEA619A00585230 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateExtension.swift; path = MiltonMobileIOS/Src/Util/NSDateExtension.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -233,6 +268,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		89CC556D1BED0DA300B08742 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -243,6 +285,7 @@
 				411083EB1BB6C1F8007494C7 /* KeychainWrapper.h */,
 				411083EC1BB6C1F8007494C7 /* KeychainWrapper.m */,
 				411083ED1BB6C1F8007494C7 /* KeychainWrapper.swift */,
+				89CC55511BEB865300B08742 /* DatePicker.swift */,
 				411083EE1BB6C1F8007494C7 /* miltonmobileios-Bridging-Header.h */,
 				412EE7CE1B0F9D5C00244486 /* SwiftyJSON.swift */,
 				4113E2401BD2DAB700E3F01C /* SwiftSpinner.swift */,
@@ -380,6 +423,8 @@
 			isa = PBXGroup;
 			children = (
 				41FB94631AF7DB5600D2C1B5 /* miltonmobileios.app */,
+				89CC55641BED0DA300B08742 /* MiltonMobileStudent.app */,
+				89CC55701BED0DA300B08742 /* MiltonMobileStudent Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -414,6 +459,7 @@
 				41FB94601AF7DB5600D2C1B5 /* Frameworks */,
 				41FB94611AF7DB5600D2C1B5 /* Resources */,
 				4107B47B1B121867005B0176 /* Embed Frameworks */,
+				89CC55881BED0DA300B08742 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -427,6 +473,40 @@
 			productReference = 41FB94631AF7DB5600D2C1B5 /* miltonmobileios.app */;
 			productType = "com.apple.product-type.application";
 		};
+		89CC55631BED0DA300B08742 /* MiltonMobileStudent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89CC55851BED0DA300B08742 /* Build configuration list for PBXNativeTarget "MiltonMobileStudent" */;
+			buildPhases = (
+				89CC55621BED0DA300B08742 /* Resources */,
+				89CC55841BED0DA300B08742 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89CC55731BED0DA300B08742 /* PBXTargetDependency */,
+			);
+			name = MiltonMobileStudent;
+			productName = MiltonMobileStudent;
+			productReference = 89CC55641BED0DA300B08742 /* MiltonMobileStudent.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		89CC556F1BED0DA300B08742 /* MiltonMobileStudent Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89CC55811BED0DA300B08742 /* Build configuration list for PBXNativeTarget "MiltonMobileStudent Extension" */;
+			buildPhases = (
+				89CC556C1BED0DA300B08742 /* Sources */,
+				89CC556D1BED0DA300B08742 /* Frameworks */,
+				89CC556E1BED0DA300B08742 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MiltonMobileStudent Extension";
+			productName = "MiltonMobileStudent Extension";
+			productReference = 89CC55701BED0DA300B08742 /* MiltonMobileStudent Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -434,13 +514,20 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Milton Academy";
 				TargetAttributes = {
 					41FB94621AF7DB5600D2C1B5 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = YQC4GRW9NL;
+						DevelopmentTeam = 7B7M7FR7QW;
+					};
+					89CC55631BED0DA300B08742 = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 7B7M7FR7QW;
+					};
+					89CC556F1BED0DA300B08742 = {
+						CreatedOnToolsVersion = 7.1;
 					};
 				};
 			};
@@ -472,6 +559,8 @@
 			projectRoot = "";
 			targets = (
 				41FB94621AF7DB5600D2C1B5 /* miltonmobileios */,
+				89CC55631BED0DA300B08742 /* MiltonMobileStudent */,
+				89CC556F1BED0DA300B08742 /* MiltonMobileStudent Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -615,6 +704,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		89CC55621BED0DA300B08742 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89CC556E1BED0DA300B08742 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -623,6 +726,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41D8CBDC1B0A950D0040E5D1 /* Navigation_Controller.swift in Sources */,
+				89CC55521BEB865300B08742 /* DatePicker.swift in Sources */,
 				4113E23F1BD2D35700E3F01C /* Tab_Bar_Controller.swift in Sources */,
 				41E33E831AF999CE00FF50BE /* Food_Meals_ViewController.swift in Sources */,
 				411083F01BB6C1F8007494C7 /* KeychainWrapper.swift in Sources */,
@@ -635,6 +739,13 @@
 				89D60CAA1BEA619A00585230 /* NSDateExtension.swift in Sources */,
 				411083EF1BB6C1F8007494C7 /* KeychainWrapper.m in Sources */,
 				414241851BD3D62E006BEFE6 /* AboutScreen.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89CC556C1BED0DA300B08742 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +766,11 @@
 			isa = PBXTargetDependency;
 			name = "Locksmith iOS";
 			targetProxy = 411083E91BB6C144007494C7 /* PBXContainerItemProxy */;
+		};
+		89CC55731BED0DA300B08742 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89CC556F1BED0DA300B08742 /* MiltonMobileStudent Extension */;
+			targetProxy = 89CC55721BED0DA300B08742 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -793,6 +909,77 @@
 			};
 			name = Release;
 		};
+		89CC55821BED0DA300B08742 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "MiltonMobileStudent Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.milton.miltonmobileios.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		89CC55831BED0DA300B08742 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "MiltonMobileStudent Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.milton.miltonmobileios.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		89CC55861BED0DA300B08742 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				IBSC_MODULE = MiltonMobileStudent_Extension;
+				INFOPLIST_FILE = MiltonMobileStudent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.milton.miltonmobileios.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "MiltonMobileStudent/MiltonMobileStudent-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		89CC55871BED0DA300B08742 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				IBSC_MODULE = MiltonMobileStudent_Extension;
+				INFOPLIST_FILE = MiltonMobileStudent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.milton.miltonmobileios.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "MiltonMobileStudent/MiltonMobileStudent-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -810,6 +997,24 @@
 			buildConfigurations = (
 				41FB94831AF7DB5600D2C1B5 /* Debug */,
 				41FB94841AF7DB5600D2C1B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89CC55811BED0DA300B08742 /* Build configuration list for PBXNativeTarget "MiltonMobileStudent Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89CC55821BED0DA300B08742 /* Debug */,
+				89CC55831BED0DA300B08742 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89CC55851BED0DA300B08742 /* Build configuration list for PBXNativeTarget "MiltonMobileStudent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89CC55861BED0DA300B08742 /* Debug */,
+				89CC55871BED0DA300B08742 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
