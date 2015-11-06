@@ -7,6 +7,7 @@ class Food_Meals_ViewController: UIViewController, UITableViewDataSource, UITabl
     var selectedTime = ""
     var date = ""
     var today = ""
+    @IBOutlet var dateLabel: UILabel!
     
         func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         let tableAsDictionary = TableData[selectedTime].dictionaryValue
@@ -72,6 +73,8 @@ class Food_Meals_ViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var tableView: UITableView!
 
     func loadMeals() {
+        
+        dateLabel.text = self.date
         if (today != self.date) {
             today = self.date;
             SwiftSpinner.show("Loading Meals");

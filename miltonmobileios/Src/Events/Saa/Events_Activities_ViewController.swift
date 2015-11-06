@@ -6,6 +6,7 @@ class Events_Activities_ViewController: UIViewController, UITableViewDataSource,
     var TableData : JSON = []
     var date = ""
     var today = "";
+    @IBOutlet var dateLabel: UILabel!
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
@@ -83,6 +84,7 @@ class Events_Activities_ViewController: UIViewController, UITableViewDataSource,
         AboutScreen.showAboutScreen(self)
     }
     func loadActivities() {
+        dateLabel.text = self.date
         if (today != self.date) {
             today = self.date;
             SwiftSpinner.show("Loading Activities");

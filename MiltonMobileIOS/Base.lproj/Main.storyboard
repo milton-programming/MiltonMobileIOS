@@ -323,13 +323,20 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uv7-7n-hrB">
-                                <rect key="frame" x="0.0" y="72" width="600" height="30"/>
+                                <rect key="frame" x="0.0" y="72" width="296" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Select Date"/>
                                 <connections>
                                     <action selector="openDatePicker:" destination="cAZ-kd-cOY" eventType="touchUpInside" id="g82-LS-zN6"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huU-hw-HnU">
+                                <rect key="frame" x="304" y="72" width="296" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -342,16 +349,23 @@
                             <constraint firstItem="l6t-kT-NEe" firstAttribute="leading" secondItem="xbf-pR-AgJ" secondAttribute="leadingMargin" id="DAn-MI-BYv"/>
                             <constraint firstItem="Uv7-7n-hrB" firstAttribute="centerX" secondItem="xbf-pR-AgJ" secondAttribute="centerX" id="Joe-LP-4XM"/>
                             <constraint firstItem="TXa-La-W2s" firstAttribute="leading" secondItem="xbf-pR-AgJ" secondAttribute="leading" id="PH8-g6-0wd"/>
+                            <constraint firstItem="huU-hw-HnU" firstAttribute="width" secondItem="Uv7-7n-hrB" secondAttribute="width" id="Q6b-Td-Umk"/>
                             <constraint firstItem="Uv7-7n-hrB" firstAttribute="top" secondItem="LAa-I7-mq2" secondAttribute="bottom" constant="8" symbolic="YES" id="R7B-4Q-04o"/>
                             <constraint firstAttribute="trailing" secondItem="TXa-La-W2s" secondAttribute="trailing" id="SEk-xf-ncB"/>
                             <constraint firstItem="Uv7-7n-hrB" firstAttribute="leading" secondItem="xbf-pR-AgJ" secondAttribute="leading" id="c5e-AR-Pnn"/>
                             <constraint firstItem="TXa-La-W2s" firstAttribute="centerX" secondItem="xbf-pR-AgJ" secondAttribute="centerX" id="ccT-Vq-EbU"/>
                             <constraint firstItem="l6t-kT-NEe" firstAttribute="centerX" secondItem="TXa-La-W2s" secondAttribute="centerX" id="fyI-PD-J91"/>
+                            <constraint firstItem="l6t-kT-NEe" firstAttribute="top" secondItem="huU-hw-HnU" secondAttribute="bottom" constant="8" symbolic="YES" id="n4j-X0-bbz"/>
+                            <constraint firstAttribute="trailing" secondItem="huU-hw-HnU" secondAttribute="trailing" id="pFb-pf-ne2"/>
                             <constraint firstItem="l6t-kT-NEe" firstAttribute="centerX" secondItem="xbf-pR-AgJ" secondAttribute="centerX" id="smi-zd-ugd"/>
                             <constraint firstAttribute="trailing" secondItem="Uv7-7n-hrB" secondAttribute="trailing" id="tNu-JR-Nak"/>
+                            <constraint firstItem="huU-hw-HnU" firstAttribute="leading" secondItem="Uv7-7n-hrB" secondAttribute="trailing" constant="8" symbolic="YES" id="uQa-Jb-TED"/>
+                            <constraint firstItem="huU-hw-HnU" firstAttribute="top" secondItem="LAa-I7-mq2" secondAttribute="bottom" constant="8" symbolic="YES" id="wCV-IH-HsR"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Joe-LP-4XM"/>
+                                <exclude reference="tNu-JR-Nak"/>
                                 <exclude reference="7vh-vl-ner"/>
                                 <exclude reference="fyI-PD-J91"/>
                                 <exclude reference="5Rg-6z-E81"/>
@@ -374,6 +388,7 @@
                         </button>
                     </navigationItem>
                     <connections>
+                        <outlet property="dateLabel" destination="huU-hw-HnU" id="N71-5g-IGO"/>
                         <outlet property="tableView" destination="TXa-La-W2s" id="HKI-xC-AUO"/>
                     </connections>
                 </viewController>
@@ -413,15 +428,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiE-na-QdY">
-                                <rect key="frame" x="0.0" y="72" width="600" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gW9-5q-IHb">
+                                <rect key="frame" x="0.0" y="72" width="296" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Select Date"/>
                                 <connections>
-                                    <action selector="changeDate:" destination="ukh-Ur-jUD" eventType="touchUpInside" id="SR3-Yf-THS"/>
-                                    <action selector="openDatePicker:" destination="cAZ-kd-cOY" eventType="touchUpInside" id="LZ1-f9-gnq"/>
+                                    <action selector="changeDate:" destination="ukh-Ur-jUD" eventType="touchUpInside" id="92z-UO-z3u"/>
+                                    <action selector="openDatePicker:" destination="cAZ-kd-cOY" eventType="touchUpInside" id="nof-fC-C3S"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42W-Ni-gOK">
+                                <rect key="frame" x="304" y="72" width="296" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xe0-DO-x1N">
                                 <rect key="frame" x="0.0" y="110" width="600" height="433"/>
                                 <animations/>
@@ -435,19 +457,26 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="42W-Ni-gOK" firstAttribute="width" secondItem="gW9-5q-IHb" secondAttribute="width" id="8eJ-lf-0Ya"/>
                             <constraint firstItem="qjh-M6-8Vf" firstAttribute="top" secondItem="xe0-DO-x1N" secondAttribute="bottom" constant="8" symbolic="YES" id="9ZA-b6-HZu"/>
-                            <constraint firstItem="fiE-na-QdY" firstAttribute="centerX" secondItem="bx5-Zu-hrf" secondAttribute="centerX" id="EgL-fA-5W9"/>
-                            <constraint firstItem="fiE-na-QdY" firstAttribute="top" secondItem="L3i-KV-fy8" secondAttribute="bottom" constant="8" symbolic="YES" id="Hno-Hp-JUX"/>
-                            <constraint firstAttribute="trailing" secondItem="fiE-na-QdY" secondAttribute="trailing" id="JcN-c1-AFS"/>
-                            <constraint firstItem="fiE-na-QdY" firstAttribute="leading" secondItem="bx5-Zu-hrf" secondAttribute="leading" id="NM6-Fv-7Yv"/>
+                            <constraint firstItem="gW9-5q-IHb" firstAttribute="leading" secondItem="bx5-Zu-hrf" secondAttribute="leading" id="BeS-Fu-wEc"/>
+                            <constraint firstItem="42W-Ni-gOK" firstAttribute="leading" secondItem="gW9-5q-IHb" secondAttribute="trailing" constant="8" symbolic="YES" id="COR-kN-Tik"/>
+                            <constraint firstItem="42W-Ni-gOK" firstAttribute="width" secondItem="gW9-5q-IHb" secondAttribute="width" id="FOK-cX-yCT"/>
                             <constraint firstAttribute="trailing" secondItem="xe0-DO-x1N" secondAttribute="trailing" id="NVV-Kb-31j"/>
-                            <constraint firstItem="xe0-DO-x1N" firstAttribute="top" secondItem="fiE-na-QdY" secondAttribute="bottom" constant="8" symbolic="YES" id="aJd-WG-KMG"/>
+                            <constraint firstAttribute="trailing" secondItem="42W-Ni-gOK" secondAttribute="trailing" id="Xnc-z3-jUN"/>
+                            <constraint firstItem="42W-Ni-gOK" firstAttribute="top" secondItem="L3i-KV-fy8" secondAttribute="bottom" constant="8" symbolic="YES" id="ZXz-pt-ir3"/>
+                            <constraint firstItem="xe0-DO-x1N" firstAttribute="top" secondItem="gW9-5q-IHb" secondAttribute="bottom" constant="8" symbolic="YES" id="cRK-H5-wbP"/>
+                            <constraint firstItem="42W-Ni-gOK" firstAttribute="leading" secondItem="gW9-5q-IHb" secondAttribute="trailing" constant="8" symbolic="YES" id="dlR-VD-k0K"/>
+                            <constraint firstItem="xe0-DO-x1N" firstAttribute="top" secondItem="42W-Ni-gOK" secondAttribute="bottom" constant="8" symbolic="YES" id="gz7-oz-H2d"/>
                             <constraint firstItem="xe0-DO-x1N" firstAttribute="leading" secondItem="bx5-Zu-hrf" secondAttribute="leading" id="j3p-YO-imD"/>
                             <constraint firstItem="xe0-DO-x1N" firstAttribute="top" secondItem="bx5-Zu-hrf" secondAttribute="top" id="oXR-mz-ke2"/>
+                            <constraint firstItem="gW9-5q-IHb" firstAttribute="top" secondItem="L3i-KV-fy8" secondAttribute="bottom" constant="8" symbolic="YES" id="xi1-Xd-0PF"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="oXR-mz-ke2"/>
+                                <exclude reference="FOK-cX-yCT"/>
+                                <exclude reference="dlR-VD-k0K"/>
                             </mask>
                         </variation>
                     </view>
@@ -467,6 +496,7 @@
                         </button>
                     </navigationItem>
                     <connections>
+                        <outlet property="dateLabel" destination="42W-Ni-gOK" id="zxa-VA-Yl1"/>
                         <outlet property="tableView" destination="xe0-DO-x1N" id="cji-Dj-8O5"/>
                     </connections>
                 </viewController>
